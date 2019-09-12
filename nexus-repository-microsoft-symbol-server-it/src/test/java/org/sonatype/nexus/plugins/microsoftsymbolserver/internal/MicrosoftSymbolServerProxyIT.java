@@ -33,7 +33,7 @@ import static org.sonatype.nexus.testsuite.testsupport.FormatClientSupport.statu
 public class MicrosoftSymbolServerProxyIT
     extends MicrosoftSymbolServerITSupport
 {
-  private static final String TEST_PATH = "imaginary/path/index.html";
+  private static final String TEST_PATH = "imaginary/path/System.Core.pdb";
 
   private MicrosoftSymbolServerClient proxyClient;
 
@@ -63,7 +63,7 @@ public class MicrosoftSymbolServerProxyIT
   }
 
   @Test
-  public void retrieveCondaWhenRemoteOffline() throws Exception {
+  public void retrievePdbWhenRemoteOffline() throws Exception {
     Server server = Server.withPort(0).serve("/*")
         .withBehaviours(content("Response"))
         .start();

@@ -57,8 +57,8 @@ public class MicrosoftSymbolServerContentValidator
             false,
             contentSupplier,
             mimeRulesSource,
-            contentName + ".pdb",
-            declaredContentType);
+            contentName,
+            "chemical/x-pdb");
       }
     }
     return defaultContentValidator.determineContentType(
