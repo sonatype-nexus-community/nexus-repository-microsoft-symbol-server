@@ -12,6 +12,11 @@
  */
 package org.sonatype.nexus.plugins.microsoftsymbolserver.internal;
 
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.sonatype.goodies.httpfixture.server.fluent.Server;
 import org.sonatype.nexus.pax.exam.NexusPaxExamSupport;
 import org.sonatype.nexus.repository.Repository;
@@ -28,12 +33,17 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.sonatype.goodies.httpfixture.server.fluent.Behaviours.content;
 import static org.sonatype.goodies.httpfixture.server.fluent.Behaviours.error;
+import static org.sonatype.goodies.httpfixture.server.fluent.Behaviours.redirect;
 import static org.sonatype.nexus.testsuite.testsupport.FormatClientSupport.status;
 
 public class MicrosoftSymbolServerProxyIT
     extends MicrosoftSymbolServerITSupport
 {
   private static final String TEST_PATH = "imaginary/path/System.Core.pdb";
+
+  private static final String USER_AGENT_HEADER = "User-Agent";
+
+  private static final String USER_AGENT = "Microsoft-Symbol-Server/6.3.9600.17095";
 
   private MicrosoftSymbolServerClient proxyClient;
 
@@ -69,6 +79,31 @@ public class MicrosoftSymbolServerProxyIT
         .start();
     try {
       proxyRepo = repos.createMicrosoftSymbolServerProxy("microsoft-symbol-server-test-proxy-offline", server.getUrl().toExternalForm());
+      proxyClient = microsoftSymbolServerClient(proxyRepo);
+      proxyClient.get(TEST_PATH);
+    }
+    finally {
+      server.stop();
+    }
+    assertThat(status(proxyClient.get(TEST_PATH)), is(200));
+  }
+
+  @Test
+  public void userAgentHeaderSetCorrectlyOnOutboundRequest() throws Exception {
+    Server server = Server.withPort(0).serve("/*")
+        .withBehaviours(
+            (HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Map<Object, Object> map) -> {
+          String agent = httpServletRequest.getHeader(USER_AGENT_HEADER);
+          if (agent.equals(USER_AGENT)) {
+            return false;
+          } else {
+            System.out.println("INTEGRATION TEST: User Agent set incorrectly, value was: <" + agent + "> but should be: <" + USER_AGENT + ">.");
+            return true;
+          }
+        }, redirect("Invalid User Agent"))
+        .start();
+    try {
+      proxyRepo = repos.createMicrosoftSymbolServerProxy("microsoft-symbol-server-test-user-agent", server.getUrl().toExternalForm());
       proxyClient = microsoftSymbolServerClient(proxyRepo);
       proxyClient.get(TEST_PATH);
     }
