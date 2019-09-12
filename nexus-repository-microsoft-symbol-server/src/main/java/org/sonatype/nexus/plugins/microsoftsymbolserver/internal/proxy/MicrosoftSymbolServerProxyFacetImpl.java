@@ -39,6 +39,10 @@ import org.sonatype.nexus.repository.view.Context;
 import org.sonatype.nexus.repository.view.matchers.token.TokenMatcher;
 import org.sonatype.nexus.transaction.UnitOfWork;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpRequestBase;
+
 import static com.google.common.base.Preconditions.checkNotNull;
 import static org.sonatype.nexus.repository.storage.AssetEntityAdapter.P_ASSET_KIND;
 
@@ -93,6 +97,13 @@ public class MicrosoftSymbolServerProxyFacetImpl
       default:
         throw new IllegalStateException("Received an invalid AssetKind of type: " + assetKind.name());
     }
+  }
+
+  @Override
+  protected HttpResponse execute(final Context context, final HttpClient client, final HttpRequestBase request) throws IOException {
+    // Add specific User Agent header so that it will return properly from remote
+    request.addHeader("User-Agent", "Microsoft-Symbol-Server/6.3.9600.17095");
+    return super.execute(context, client, request);
   }
 
   @Override
