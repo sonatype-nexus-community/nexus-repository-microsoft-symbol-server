@@ -30,7 +30,7 @@ import com.google.common.base.Supplier;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-@Named
+@Named(MicrosoftSymbolServerFormat.NAME)
 @Singleton
 public class MicrosoftSymbolServerContentValidator
     extends ComponentSupport
@@ -58,7 +58,7 @@ public class MicrosoftSymbolServerContentValidator
             contentSupplier,
             mimeRulesSource,
             contentName,
-            "chemical/x-pdb");
+            "text/plain");
       }
     }
     return defaultContentValidator.determineContentType(
