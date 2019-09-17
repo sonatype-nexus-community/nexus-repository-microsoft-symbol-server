@@ -25,11 +25,10 @@ Ext.define('NX.microsoftsymbolserver.app.PluginStrings', {
   ],
 
   keys: {
-    Repository_Facet_CondaFacet_Title: 'Conda Settings',
-    SearchConda_Group: 'Conda Repositories',
-    SearchConda_License_FieldLabel: 'License',
-    SearchConda_Text: 'Conda',
-    SearchConda_Description: 'Search for components in Conda repositories',
+    Repository_Facet_MSSFacet_Title: 'Microsoft Symbol Server Settings',
+    SearchMSS_Group: 'Microsoft Symbol Server Repositories',
+    SearchMSS_Text: 'Microsoft Symbol Server',
+    SearchMSS_Description: 'Search for components in Microsoft Symbol Server repositories',
   }
 }, function(self) {
   NX.I18n.register(self);

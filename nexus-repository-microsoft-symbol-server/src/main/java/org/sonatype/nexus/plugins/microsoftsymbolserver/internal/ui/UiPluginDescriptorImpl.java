@@ -26,7 +26,7 @@ public class UiPluginDescriptorImpl
 {
   public UiPluginDescriptorImpl() {
     super("nexus-repository-microsoft-symbol-server");
-    setNamespace("NX.microsoft-symbol-server");
-    setConfigClassName("NX.microsoft-symbol-server.app.PluginConfig");
+    setNamespace("NX.microsoftsymbolserver");
+    setConfigClassName("NX.microsoftsymbolserver.app.PluginConfig");
   }
 }
