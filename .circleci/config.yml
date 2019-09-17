@@ -14,7 +14,7 @@ mvn-collect-artifacts-command: &mvn-collect-artifacts-command
     cp ~/project/nexus-repository-microsoft-symbol-server-it/target/failsafe-reports/*.xml ~/project/artifacts/junit/
 
 mvn-deploy-command: &mvn-deploy-command
-  mvn-deploy-command: mvn -s .maven.xml clean deploy -PbuildKar -DdeployAtEnd=true -DperformRelease=true -DskipTests -Dspotbugs.skip=true
+  mvn-deploy-command: mvn -s .circleci/.maven.xml clean deploy -PbuildKar -DdeployAtEnd=true -DperformRelease=true -DskipTests -Dspotbugs.skip=true
   context: rso-base
 
 workflows:
