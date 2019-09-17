@@ -93,14 +93,14 @@ public class MicrosoftSymbolServerProxyIT
     Server server = Server.withPort(0).serve("/*")
         .withBehaviours(
             (HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Map<Object, Object> map) -> {
-          String agent = httpServletRequest.getHeader(USER_AGENT_HEADER);
-          if (agent.equals(USER_AGENT)) {
-            return false;
-          } else {
-            System.out.println("INTEGRATION TEST: User Agent set incorrectly, value was: <" + agent + "> but should be: <" + USER_AGENT + ">.");
-            return true;
-          }
-        }, redirect("Invalid User Agent"))
+              String agent = httpServletRequest.getHeader(USER_AGENT_HEADER);
+              if (agent.equals(USER_AGENT)) {
+                return false;
+              } else {
+                System.out.println("INTEGRATION TEST: User Agent set incorrectly, value was: <" + agent + "> but should be: <" + USER_AGENT + ">.");
+                return true;
+              }
+            }, redirect("http://localhost:3000", 301))
         .start();
     try {
       proxyRepo = repos.createMicrosoftSymbolServerProxy("microsoft-symbol-server-test-user-agent", server.getUrl().toExternalForm());
