@@ -19,7 +19,7 @@ Ext.define('NX.microsoftsymbolserver.util.MicrosoftSymbolServerRepositoryUrls', 
     'NX.util.Url'
   ]
 }, function(self) {
-	NX.coreui.util.RepositoryUrls.addRepositoryUrlStrategy('microsoftsymbolserver', function (assetModel) {
+	NX.coreui.util.RepositoryUrls.addRepositoryUrlStrategy('microsoft-symbol-server', function (assetModel) {
       var repositoryName = assetModel.get('repositoryName'), assetName = assetModel.get('name');
       return NX.util.Url.asLink(NX.util.Url.baseUrl + '/repository/' + repositoryName + '/' + assetName, assetName);
     });
