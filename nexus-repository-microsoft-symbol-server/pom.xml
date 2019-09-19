@@ -51,13 +51,18 @@
         <groupId>org.sonatype.nexus.buildsupport</groupId>
         <artifactId>extjs-maven-plugin</artifactId>
         <configuration>
-          <namespace>NX.microsoft-symbol-server</namespace>
+          <namespace>NX.microsoftsymbolserver</namespace>
         </configuration>
       </plugin>
 
       <plugin>
         <groupId>org.apache.karaf.tooling</groupId>
         <artifactId>karaf-maven-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>yuicompressor-maven-plugin</artifactId>
       </plugin>
 
       <plugin>
