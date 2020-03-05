@@ -148,11 +148,11 @@ If you are trying to use the Microsoft Symbol Server plugin permanently, it like
 * Make the following additions marked with + to `<nexus_dir>/system/org/sonatype/nexus/assemblies/nexus-core-feature/3.x.y/nexus-core-feature-3.x.y-features.xml`
 
    ```
-         <feature prerequisite="false" dependency="false">nexus-repository-rubygems</feature>
+         <feature prerequisite="false" dependency="false">wrap</feature>
    +     <feature prerequisite="false" dependency="false">nexus-repository-microsoft-symbol-server</feature>
-         <feature prerequisite="false" dependency="false">nexus-repository-gitlfs</feature>
-     </feature>
    ```
+   to the `<feature name="nexus-core-feature" description="org.sonatype.nexus.assemblies:nexus-core-feature" version="3.x.y.xy">` section below the last (above is an example, the exact last one may vary).
+   
    And
    ```
    + <feature name="nexus-repository-microsoft-symbol-server" description="org.sonatype.nexus.plugins:nexus-repository-microsoft-symbol-server" version="0.0.1">
@@ -161,6 +161,8 @@ If you are trying to use the Microsoft Symbol Server plugin permanently, it like
    + </feature>
     </features>
    ```
+   as the last feature.
+   
 This will cause the plugin to be loaded and started with each startup of Nexus Repository.
 
 ## The Fine Print
