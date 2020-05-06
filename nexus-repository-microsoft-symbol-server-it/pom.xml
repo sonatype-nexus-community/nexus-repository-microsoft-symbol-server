@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.sonatype.nexus.plugins</groupId>
     <artifactId>microsoft-symbol-server-parent</artifactId>
-    <version>0.0.6-SNAPSHOT</version>
+    <version>0.0.6</version>
   </parent>
 
   <artifactId>nexus-repository-microsoft-symbol-server-it</artifactId>
@@ -135,10 +135,9 @@
             </goals>
             <configuration>
               <target>
-                <unzip src="${org.sonatype.nexus.testsuite:nexus-it-suite-data:jar}"
-                       dest="${project.build.directory}/it-resources">
+                <unzip src="${org.sonatype.nexus.testsuite:nexus-it-suite-data:jar}" dest="${project.build.directory}/it-resources">
                   <patternset>
-                    <exclude name="META-INF/**"/>
+                    <exclude name="META-INF/**" />
                   </patternset>
                 </unzip>
               </target>
