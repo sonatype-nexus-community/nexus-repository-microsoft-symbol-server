@@ -26,7 +26,6 @@
   <version>0.0.6-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>${project.groupId}:${project.artifactId}-parent</name>
   <inceptionYear>2019</inceptionYear>
 
   <modules>
@@ -46,7 +45,7 @@
   </distributionManagement>
 
   <properties>
-    <nxrm-version>3.19.0-SNAPSHOT</nxrm-version>
+    <nxrm-version>3.19.0-01</nxrm-version>
   </properties>
 
   <repositories>
