@@ -23,7 +23,7 @@
   </parent>
 
   <artifactId>microsoft-symbol-server-parent</artifactId>
-  <version>0.0.9-SNAPSHOT</version>
+  <version>0.0.9</version>
   <packaging>pom</packaging>
 
   <inceptionYear>2019</inceptionYear>
@@ -35,7 +35,7 @@
 
   <scm>
     <developerConnection>scm:git:git@github.com:sonatype-nexus-community/nexus-repository-microsoft-symbol-server.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>microsoft-symbol-server-parent-0.0.9</tag>
   </scm>
   <distributionManagement>
     <snapshotRepository>
