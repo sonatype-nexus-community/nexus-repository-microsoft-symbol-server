@@ -82,7 +82,7 @@ The table below outlines what version of Nexus Repository the plugin was built a
 | v0.0.1         | 3.19.0-01                |
 | v0.0.8         | 3.23.0-03                |
 | v0.0.9         | 3.28.1-01                |
-| v0.0.10        | 3.29.2-02                |
+| v0.0.11        | 3.29.2-02                |
 
 If a new version of Nexus Repository is released and the plugin needs changes, a new release will be made, and this
 table will be updated to indicate which version of Nexus Repository it will function against. This is done on a time 
