@@ -23,6 +23,7 @@ import javax.inject.Named;
 import org.sonatype.nexus.blobstore.api.Blob;
 import org.sonatype.nexus.common.collect.AttributesMap;
 import org.sonatype.nexus.common.hash.HashAlgorithm;
+import org.sonatype.nexus.common.io.InputStreamSupplier;
 import org.sonatype.nexus.repository.Repository;
 import org.sonatype.nexus.repository.storage.Asset;
 import org.sonatype.nexus.repository.storage.AssetBlob;
@@ -93,7 +94,7 @@ public class MicrosoftSymbolServerDataAccess
    */
   public Content saveAsset(final StorageTx tx,
                            final Asset asset,
-                           final Supplier<InputStream> contentSupplier,
+                           final InputStreamSupplier contentSupplier,
                            final Payload payload) throws IOException
   {
     AttributesMap contentAttributes = null;
@@ -112,7 +113,7 @@ public class MicrosoftSymbolServerDataAccess
    */
   public Content saveAsset(final StorageTx tx,
                            final Asset asset,
-                           final Supplier<InputStream> contentSupplier,
+                           final InputStreamSupplier contentSupplier,
                            final String contentType,
                            @Nullable final AttributesMap contentAttributes) throws IOException
   {
