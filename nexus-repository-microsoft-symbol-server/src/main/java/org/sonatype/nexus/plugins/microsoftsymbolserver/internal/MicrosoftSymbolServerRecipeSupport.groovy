@@ -12,6 +12,8 @@
  */
 package org.sonatype.nexus.plugins.microsoftsymbolserver.internal
 
+import org.sonatype.nexus.repository.content.search.SearchFacet
+
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -25,7 +27,6 @@ import org.sonatype.nexus.repository.cache.NegativeCacheHandler
 import org.sonatype.nexus.repository.http.PartialFetchHandler
 import org.sonatype.nexus.repository.httpclient.HttpClientFacet
 import org.sonatype.nexus.repository.purge.PurgeUnusedFacet
-import org.sonatype.nexus.repository.search.SearchFacet
 import org.sonatype.nexus.repository.security.SecurityHandler
 import org.sonatype.nexus.repository.storage.DefaultComponentMaintenanceImpl
 import org.sonatype.nexus.repository.storage.StorageFacet

@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.sonatype.nexus.plugins</groupId>
     <artifactId>microsoft-symbol-server-parent</artifactId>
-    <version>0.0.13-SNAPSHOT</version>
+    <version>0.0.12</version>
   </parent>
 
   <artifactId>nexus-repository-microsoft-symbol-server</artifactId>
@@ -22,6 +22,12 @@
     <dependency>
       <groupId>org.sonatype.nexus</groupId>
       <artifactId>nexus-repository</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.sonatype.nexus</groupId>
+      <artifactId>nexus-repository-content</artifactId>
       <scope>provided</scope>
     </dependency>
 
